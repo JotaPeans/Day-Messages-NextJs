@@ -79,13 +79,12 @@ const Add = () => {
                 <Spacer y={4}/>
                 
                 <Textarea
-                    minRows={5}
+                    minRows={10}
                     aria-label="Message"
                     variant="faded"
                     placeholder="Write your message"
                     value={message}
                     onValueChange={setMessage}
-                    className="max-w-xs"
                 />
 
                 <Spacer y={4}/>
