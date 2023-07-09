@@ -43,7 +43,7 @@ const Page = () => {
 
     if(typeof window !== undefined) {
         window.addEventListener("scroll", () => {
-            if(window.scrollY + window.innerHeight === document.body.offsetHeight) setQueryPagination({skip: queryPagination.skip + 5})
+            if(window.scrollY + window.innerHeight === document.body.offsetHeight -160) setQueryPagination({skip: queryPagination.skip + 5})
         });
     }
 
