@@ -21,8 +21,6 @@ const Add = () => {
     const [ selected, setSelected ] = useState<User | null>(null);
     const [ status, setStatus ] = useState<null | "loading" | "success" | "error">(null);
 
-    console.log(session)
-
     useEffect(() => {
         getUsers()
     }, []);
