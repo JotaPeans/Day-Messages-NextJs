@@ -1,23 +1,30 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Input, Button, Spacer } from "@nextui-org/react";
-import { signIn } from "next-auth/react";
-import { useSession } from "next-auth/react";
+import { useSession, signIn } from "next-auth/react";
 import discordUser from "@/assets/animations/discord-user.json";
 import Lottie from "lottie-react"
 import { redirect } from "next/navigation";
 
 const Home = () => {
-    const session = useSession();
+    const {data: session} = useSession();
+    const [ loading, setLoading ] = useState(false);
     const cpfRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
 
-    if(session && session.data?.user) {
+    if(session && session?.user) {
         redirect("/home");
     }
 
+    document?.addEventListener("keydown", e => {
+        if(e.key === "Enter") {
+            handleCrendentialsLogin();
+        }
+    });
+
     async function handleCrendentialsLogin() {
+        setLoading(true);
         await signIn("credentials", {
             cpf: cpfRef.current!.value,
             password: passwordRef.current!.value,
@@ -33,9 +40,9 @@ const Home = () => {
                     <Lottie className="h-full" animationData={discordUser}/>
                 </div>
                 <Spacer y={5}/>
-                <Input maxLength={11} type="number" ref={cpfRef} variant="bordered" label="cpf"/>
+                <Input maxLength={11} type="tel" ref={cpfRef} variant="bordered" label="cpf"/>
                 <Input type="password" ref={passwordRef} variant="bordered" label="password"/>
-                <Button onPress={handleCrendentialsLogin} size="lg" color="primary">Enviar</Button>
+                <Button isLoading={loading} onPress={handleCrendentialsLogin} size="lg" color="primary">Enviar</Button>
             </div>
         </main>
     );
