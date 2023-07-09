@@ -17,11 +17,13 @@ const Home = () => {
         redirect("/home");
     }
 
-    document?.addEventListener("keydown", e => {
-        if(e.key === "Enter") {
-            handleCrendentialsLogin();
-        }
-    });
+    if (typeof window !== "undefined") {
+        document.addEventListener("keydown", e => {
+            if(e.key === "Enter") {
+                handleCrendentialsLogin();
+            }
+        });
+    }
 
     async function handleCrendentialsLogin() {
         setLoading(true);
