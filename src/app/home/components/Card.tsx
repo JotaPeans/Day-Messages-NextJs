@@ -5,8 +5,8 @@ interface CardProps {
 
 const Card = ({ message, date }: CardProps) => {
     return (
-        <div className="relative flex border-2 min-h-[10rem] rounded-xl p-2 text-sm font-semibold text-zinc-600 shadow-md">
-            <p>{ message }</p>
+        <div className="relative flex border-2 min-h-[10rem] rounded-xl p-2 pb-8 text-sm font-semibold text-zinc-600 shadow-md ">
+            <p className="first-letter:uppercase">{ message }</p>
             <span className="font-medium text-xs text-zinc-400 absolute right-2 bottom-2">{ date }</span>
         </div>
     );
