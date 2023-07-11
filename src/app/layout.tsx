@@ -16,6 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-br">
+      <head>
+        <link rel='apple-touch-icon' href='https://i.imgur.com/aGP4Njz.jpg' />
+      </head>
       <body className={font.className + " " + "overflow-x-hidden"}>
         <Providers>
           {children}
