@@ -19,7 +19,9 @@ export default function RootLayout({
       <head>
         <link rel='apple-touch-icon' href='https://i.imgur.com/aGP4Njz.jpg' />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+        <link rel="apple-touch-startup-image" href="/launch.png" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="theme-color" content="#FFF" />
       </head>
       <body className={font.className + " " + "overflow-x-hidden"}>
         <Providers>
