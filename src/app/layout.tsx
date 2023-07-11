@@ -18,6 +18,8 @@ export default function RootLayout({
     <html lang="pt-br">
       <head>
         <link rel='apple-touch-icon' href='https://i.imgur.com/aGP4Njz.jpg' />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
       </head>
       <body className={font.className + " " + "overflow-x-hidden"}>
         <Providers>
