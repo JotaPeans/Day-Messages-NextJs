@@ -85,6 +85,10 @@ const Add = () => {
                     placeholder="Write your message"
                     value={message}
                     onValueChange={setMessage}
+                    classNames={{
+                        inputWrapper: "dark:bg-zinc-800 dark:border-zinc-400",
+                        input: "dark:text-zinc-300",
+                    }}
                 />
 
                 <Spacer y={4}/>

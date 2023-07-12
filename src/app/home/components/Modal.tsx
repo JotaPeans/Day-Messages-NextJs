@@ -18,7 +18,7 @@ const Modal = ({ open, onClose, children }: ModalProps) => {
         >
             <div
                 data-open={open} 
-                className="relative transition-all w-[90%] h-96 rounded-xl bg-zinc-50 shadow-lg data-[open=true]:animate-appearance-in data-[open=false]:animate-appearance-out flex flex-col p-2 z-50"
+                className="relative transition-all w-[90%] h-96 rounded-xl bg-zinc-50 dark:bg-zinc-800 shadow-lg data-[open=true]:animate-appearance-in data-[open=false]:animate-appearance-out flex flex-col p-2 z-50"
             >
                 <Button className="self-end" size="sm" variant="flat" color="danger" isIconOnly onPress={onClose}>
                     <X size={16}/>

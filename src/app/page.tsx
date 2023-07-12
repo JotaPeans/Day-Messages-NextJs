@@ -42,8 +42,16 @@ const Home = () => {
                     <Lottie className="h-full" animationData={discordUser}/>
                 </div>
                 <Spacer y={5}/>
-                <Input maxLength={11} type="tel" ref={cpfRef} variant="bordered" label="cpf"/>
-                <Input type="password" ref={passwordRef} variant="bordered" label="password"/>
+                <Input maxLength={11} type="tel" ref={cpfRef} variant="bordered" label="cpf" classNames={{
+                    label: "dark:text-zinc-300 dark:group-data-[focus=true]:text-zinc-300",
+                    input: "dark:text-zinc-300",
+                    inputWrapper: "dark:border-zinc-500 dark:group-data-[focus=true]:border-zinc-600"
+                }}/>
+                <Input type="password" ref={passwordRef} variant="bordered" label="password" classNames={{
+                    label: "dark:text-zinc-300 dark:group-data-[focus=true]:text-zinc-300",
+                    input: "dark:text-zinc-300",
+                    inputWrapper: "dark:border-zinc-500 dark:group-data-[focus=true]:border-zinc-600"
+                }}/>
                 <Button isLoading={loading} onPress={handleCrendentialsLogin} size="lg" color="primary">Enviar</Button>
             </div>
         </main>
