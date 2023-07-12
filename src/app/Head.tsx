@@ -6,7 +6,7 @@ const Head = () => {
     const [ dark, setDark ] = useState(false);
 
     useEffect(() => {
-        if (typeof window !== "undefined") setDark(window.matchMedia("(prefers-color-scheme: dark)").matches)
+        if (typeof window !== undefined) setDark(window.matchMedia("(prefers-color-scheme: dark)").matches)
     }, []);
 
     return (
