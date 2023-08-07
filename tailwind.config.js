@@ -15,6 +15,22 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      keyframes: {
+        "shake": {
+          "0%": { transform: "rotate(0deg)" },
+          "1%": { transform: "rotate(-17deg)" },
+          "3%": { transform: "rotate(17deg)" },
+          "5%": { transform: "rotate(-17deg)" },
+          "7%": { transform: "rotate(17deg)" },
+          "9%": { transform: "rotate(0deg)" },
+          "30%": { transform: "rotate(0deg)" },
+          "40%": { transform: "rotate(0deg)" },
+          "60%, 70%, 80%, 90%, 100%": { transform: "rotate(0deg)" },
+        }
+      },
+      animation: {
+        "shake": "shake 5s infinite"
+      }
     },
   },
   plugins: [nextui()],

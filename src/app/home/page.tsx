@@ -6,21 +6,14 @@ import Add from "./components/Add";
 import Card from "./components/Card";
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
-
-interface Message {
-    id: string
-    message: string
-    userToId: string
-    liked: boolean
-    createdAt: string
-}
+import { Message } from "@/assets/types";
 
 const Page = () => {
     const { data: session } = useSession();
     const [ messages, setMessages ] = useState<Message[] | null>(null);
     const [ queryPagination, setQueryPagination ] = useState({
         skip: 0
-    })
+    });
 
     useEffect(() => {
         getMessages()
@@ -32,10 +25,6 @@ const Page = () => {
         });
     
         var data: Message[] = await response.json();
-        for (let message of data) {
-            var date = new Date(message.createdAt);
-            message.createdAt = date.toLocaleDateString()
-        }
 
         if(messages) setMessages([...messages, ...data]);
         else setMessages(data);
@@ -54,11 +43,17 @@ const Page = () => {
             <Spacer y={5}/>
             <div className="flex flex-col gap-4">
                 {messages?.map((item, i) => (
-                    <Card key={i} message={item.message} date={item.createdAt}/>
+                    <Card key={i} messageData={{...item}}/>
                 ))}
 
                 <Skeleton className="rounded-xl border-2">
-                    <Card message="" date=""/>
+                    <Card messageData={{
+                        id: "",
+                        createdAt: new Date().toISOString(),
+                        liked: false,
+                        message: "",
+                        userToId: ""
+                    }}/>
                 </Skeleton>
             </div>
             <Add/>
