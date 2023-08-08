@@ -52,6 +52,7 @@ const Add = () => {
             await axios.post("/api/messages", JSON.stringify({
                 message,
                 userToId: selected?.id,
+                userFromId: session?.user.id
             }), {
                 headers: {
                     "Content-Type": "application/json"
@@ -106,7 +107,7 @@ const Add = () => {
             </Modal>
 
 
-            <Button className="fixed bottom-4 right-4 animate-appearance-in" variant="flat" color="primary" isIconOnly onPress={() => setOpen(true)}>
+            <Button className="fixed bottom-8 right-8 animate-appearance-in" variant="flat" color="primary" isIconOnly onPress={() => setOpen(true)}>
                 <Plus/>
             </Button>
         </>

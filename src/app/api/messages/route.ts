@@ -5,11 +5,12 @@ const prisma = new PrismaClient();
 
 
 export async function POST(req: NextRequest) {
-    const { message, userToId } = await req.json();
+    const { message, userToId, userFromId } = await req.json();
     const newMessage = await prisma.message.create({
         data: {
             message,
             userToId,
+            userFromId
         }
     });
     

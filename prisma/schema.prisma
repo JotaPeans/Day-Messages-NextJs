@@ -19,9 +19,10 @@ model User {
 }
 
 model Message {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  message   String
-  userToId  String
-  createdAt DateTime @default(now())
-  liked     Boolean?
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  message    String
+  userToId   String
+  userFromId String?
+  createdAt  DateTime @default(now())
+  liked      Boolean?
 }
