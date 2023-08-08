@@ -43,6 +43,9 @@ const Header = () => {
     }
 
     let now = new Date().toLocaleDateString();
+    console.log(lastMessage)
+    console.log(now)
+    console.log(new Date(lastMessage.createdAt).toLocaleDateString())
     const newNotifications = lastMessage.liked && new Date(lastMessage.createdAt).toLocaleDateString() === now ? true : false;
     
     return (

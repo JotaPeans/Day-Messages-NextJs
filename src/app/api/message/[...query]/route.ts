@@ -12,11 +12,14 @@ const prisma = new PrismaClient();
 export async function GET(req: NextRequest, { params }: Params) {
     const userFromId = params.query[0];
 
-    const message = await prisma.message.findFirst({
+    const message = await prisma.message.findMany({
         where: {
             userFromId: userFromId
+        },
+        orderBy: {
+            createdAt: "desc"
         }
-    })
+    });
 
-    return NextResponse.json(message)
+    return NextResponse.json(message[0])
 }
