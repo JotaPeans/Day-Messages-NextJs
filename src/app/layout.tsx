@@ -15,8 +15,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
+  const date = new Date();
+  const hour = date.toLocaleTimeString("pt-BR").split(":")[0];
+
+  const dark = parseInt(hour) >= 17 ? "dark" : "";
+
   return (
-    <html lang="pt-br">
+    <html lang="pt-br" className={dark}>
       <Head/>
       <body className={font.className + " " + "overflow-x-hidden dark:bg-zinc-800"}>
         <Providers>
