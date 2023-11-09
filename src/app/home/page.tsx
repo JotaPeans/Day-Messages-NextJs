@@ -38,7 +38,7 @@ const Page = () => {
 
 
     return (
-        <main className="p-5 w-screen min-h-screen h-full flex flex-col">
+        <main className="p-5 w-screen min-h-screen h-full flex flex-col max-w-md mx-auto">
             <Header/>
             <Spacer y={5}/>
             <div className="flex flex-col gap-4">

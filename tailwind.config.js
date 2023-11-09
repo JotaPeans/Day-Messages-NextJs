@@ -33,5 +33,6 @@ module.exports = {
       }
     },
   },
+  darkMode: "class",
   plugins: [nextui()],
 }
