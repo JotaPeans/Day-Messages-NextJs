@@ -19,7 +19,7 @@ export default function RootLayout({
   const date = new Date();
   const hour = date.toLocaleTimeString().split(":")[0];
 
-  const dark = parseInt(hour - 3) >= 17 ? "dark" : "";
+  const dark = (parseInt(hour) - 3) >= 17 ? "dark" : "";
 
   return (
     <html lang="pt-br" className={dark}>
