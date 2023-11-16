@@ -9,10 +9,16 @@ const Head = () => {
         if (typeof window !== undefined) setDark(window.matchMedia("(prefers-color-scheme: dark)").matches)
     }, []);
 
-    const html = typeof document !== undefined ? document.getElementsByTagName("html") : [];
+    useEffect(() => {
+        if(typeof document !== undefined) {
+            const html = document.getElementsByTagName("html");
+            
+            if(dark) html[0].classList.add("dark");
+            else html[0].classList.remove("dark");
+            
+        }
+    }, [dark])
 
-    if(dark && html.length >= 1) html[0].classList.add("dark");
-    else html[0].classList.remove("dark");
 
     return (
         <head>
