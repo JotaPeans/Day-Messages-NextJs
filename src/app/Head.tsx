@@ -9,6 +9,11 @@ const Head = () => {
         if (typeof window !== undefined) setDark(window.matchMedia("(prefers-color-scheme: dark)").matches)
     }, []);
 
+    const html = typeof document !== undefined ? document.getElementsByTagName("html") : [];
+
+    if(dark && html.length >= 1) html[0].classList.add("dark");
+    else html[0].classList.remove("dark");
+
     return (
         <head>
             <link rel='apple-touch-icon' href='https://i.imgur.com/aGP4Njz.jpg' />
