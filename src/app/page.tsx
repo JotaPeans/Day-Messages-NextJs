@@ -35,28 +35,6 @@ const Home = () => {
         });
     }
 
-    async function getNotificationPermission() {
-        if(typeof Notification !== "undefined") {
-            const permission = await Notification.requestPermission();
-
-            alert(permission)
-
-            switch (permission) {
-                case "granted":
-                    break;
-                case "denied":
-                    alert("É preciso que aceite as notificações!");
-                    break
-                default:
-                    getNotificationPermission();
-            }
-        }
-    }
-
-    useEffect(() => {
-        getNotificationPermission();
-    }, []);
-
     return (
         <main className="w-screen h-screen flex flex-col justify-center items-center gap-2">
             <div className="flex flex-col gap-4">
@@ -75,13 +53,6 @@ const Home = () => {
                     inputWrapper: "dark:border-zinc-500 dark:group-data-[focus=true]:border-zinc-600"
                 }}/>
                 <Button isLoading={loading} onPress={handleCrendentialsLogin} size="lg" color="primary">Enviar</Button>
-
-                <button onClick={() => {
-                    const notify = new Notification("first notify", {
-                        body: "Ola mundo",
-                        icon: "/launch.png"
-                    })
-                }}>notify</button>
             </div>
         </main>
     );
