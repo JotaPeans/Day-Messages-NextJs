@@ -44,7 +44,6 @@ const Home = () => {
                     return;
                 case "denied":
                     alert("É preciso que aceite as notificações!");
-                    getNotificationPermission();
                     break
                 default:
                     getNotificationPermission();
