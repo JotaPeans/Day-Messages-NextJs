@@ -23,6 +23,7 @@ const Head = () => {
     return (
         <head>
             <link rel='apple-touch-icon' href='https://i.imgur.com/aGP4Njz.jpg' />
+            <link rel="manifest" href="/app.webmanifest" />
             <meta name="apple-mobile-web-app-capable" content="yes" />
             <link rel="apple-touch-startup-image" href="/launch.png" />
             <meta name="apple-mobile-web-app-status-bar-style" content="default" />
