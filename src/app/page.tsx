@@ -41,7 +41,7 @@ const Home = () => {
 
             switch (permission) {
                 case "granted":
-                    return;
+                    break;
                 case "denied":
                     alert("É preciso que aceite as notificações!");
                     break
