@@ -35,14 +35,25 @@ const Home = () => {
         });
     }
 
-    useEffect(() => {
+    async function getNotificationPermission() {
         if(typeof Notification !== "undefined") {
-            Notification.requestPermission().then(perm => {
-                if(perm !== "granted") {
+            const permission = await Notification.requestPermission();
+
+            switch (permission) {
+                case "granted":
+                    return;
+                case "denied":
                     alert("É preciso que aceite as notificações!");
-                }
-            })
+                    getNotificationPermission();
+                    break
+                default:
+                    getNotificationPermission();
+            }
         }
+    }
+
+    useEffect(() => {
+        getNotificationPermission();
     }, []);
 
     return (
