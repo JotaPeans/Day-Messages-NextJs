@@ -39,6 +39,8 @@ const Home = () => {
         if(typeof Notification !== "undefined") {
             const permission = await Notification.requestPermission();
 
+            alert(permission)
+
             switch (permission) {
                 case "granted":
                     break;
